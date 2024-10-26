@@ -1,0 +1,23 @@
+﻿@model Colegio.Models.Seccion
+@{
+    ViewData["Title"] = "Detalle de Seccion";
+}
+<div class="row">
+    <div class="offset-12">
+        <div class="card">
+            <div class="card-header bg-dark">
+                <h2 class="text-center text-white"><strong>Detalle de Seccion</strong></h2>
+            </div>
+            <div class="card-body">
+                <ul class="list-group">
+                    <li class="list-group-item"><strong>Sección: </strong>@Html.DisplayFor(m => m.DescSeccion)</li>
+                    <li class="list-group-item form-group mt-2 d-flex justify-content-center">
+                        <a class="btn btn-outline-dark btn-lg w-25 mx-2" asp-controller="Seccion" asp-action="Index">
+                            <i class="fa-solid fa-arrow-left"></i> Regresar
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

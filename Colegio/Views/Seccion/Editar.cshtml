@@ -1,0 +1,37 @@
+﻿@model Colegio.Models.Seccion
+@{
+    ViewData["Title"] = "Editar Seccion";
+}
+<div class="row">
+    <div class="offset-12">
+        <div class="card">
+            <div class="card-header bg-dark">
+                <h2 class="text-center text-white"><strong>Editar Sección</strong></h2>
+            </div>
+            <div class="card-body">
+                <form method="post" asp-action="Editar">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-floating mb-3" hidden>
+                        <input class="form-control" asp-for="Id" readonly />
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" asp-for="DescSeccion" placeholder="Género">
+                        <span asp-validation-for="DescSeccion" class="text-danger"></span>
+                        <label asp-for="DescSeccion">Sección</label>
+                    </div>
+
+                    <div class="form-group mt-2 d-flex justify-content-center">
+                        <a class="btn btn-outline-dark btn-lg w-25 mx-2" asp-controller="Seccion" asp-action="Index">
+                            <i class="fa-solid fa-arrow-left"></i> Regresar
+                        </a>
+                        <button class="btn btn-outline-warning btn-lg w-25" type="submit">
+                            <i class="fa-regular fa-floppy-disk"></i> Guardar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

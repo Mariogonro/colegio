@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Colegio.Models.Genero>
+@{
+    ViewData["Title"] = "Lista de Generos";
+    int contador = 1;
+}
+
+<h2 class="text-center">Lista de Generos</h2>
+
+<div class="row">
+    <div class="offset-9 col-3 mb-3">
+        <a class="btn btn-outline-dark d-block mx-auto btn-lg" asp-controller="Genero" asp-action="Crear">
+            <i class="fa-solid fa-square-plus"></i> Nuevo Genero
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="offset-12">
+        <div class="card">
+            <div class="card-header bg-dark">
+                <h3 class="text-white"><strong>Lista de Generos</strong></h3>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    @if (Model.Count() > 0)
+                    {
+                        <table class="table table-hover" id="tabla" width="100%" cellspacing="0">
+                            <thead>
+                                <tr class="bg-black">
+                                    <th scope="col" class="text-white">#</th>
+                                    <th scope="col" class="text-white">@Html.DisplayNameFor(m => m.Id)</th>
+                                    <th scope="col" class="text-white">@Html.DisplayNameFor(m => m.DescGenero)</th>
+                                    <th scope="col" class="text-white">Opciones</th>
+                                </tr>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@contador</td>
+                                        <td>@Html.DisplayFor(m => item.Id)</td>
+                                        <td>@Html.DisplayFor(m => item.DescGenero)</td>
+                                        <td>
+                                            <a class="btn btn-outline-primary mx-2" asp-action="Detalle" asp-route-id="@item.Id">
+                                                <i class="fa-solid fa-circle-info"></i> Detalle
+                                            </a>
+                                            <a class="btn btn-outline-warning mx-2" asp-action="Editar" asp-route-id="@item.Id">
+                                                <i class="fa-solid fa-pen-to-square"></i> Editar
+                                            </a>
+                                            <a class="btn btn-outline-danger mx-2" asp-action="Eliminar" asp-route-id="@item.Id">
+                                                <i class="fa-solid fa-trash"></i> Eliminar
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    contador++;
+                                }
+                            </thead>
+                        </table>
+                    }
+                    else
+                    {
+                        <p class="text-center"><strong>No hay registros</strong></p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+﻿@model Colegio.Models.Grado
+@{
+    ViewData["Title"] = "Editar Grado";
+}
+<div class="row">
+    <div class="offset-12">
+        <div class="card">
+            <div class="card-header bg-dark">
+                <h2 class="text-center text-white"><strong>Editar Grado</strong></h2>
+            </div>
+            <div class="card-body">
+                <form method="post" asp-action="Editar">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-floating mb-3"hidden>
+                        <input class="form-control" asp-for="Id" readonly />
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input class="form-control" asp-for="Nombre" placeholder="Nombre">
+                        <span asp-validation-for="Nombre" class="text-danger"></span>
+                        <label asp-for="Nombre">Nombre</label>
+                    </div>
+                   
+                    <div class="form-floating mb-3">
+                        <select class="form-control" asp-for="IdProfesor" asp-items="ViewBag.Profesor">
+                            <option value="">Seleccione un Profesor</option>
+                        </select>
+                        <span asp-validation-for="IdProfesor" class="text-danger"></span>
+                        <label asp-for="IdProfesor">Profesor</label>
+                    </div>
+
+                    <div class="form-group mt-2 d-flex justify-content-center">
+                        <a class="btn btn-outline-dark btn-lg w-25 mx-2" asp-controller="Grado" asp-action="Index">
+                            <i class="fa-solid fa-arrow-left"></i> Regresar
+                        </a>
+                        <button class="btn btn-outline-warning btn-lg w-25" type="submit">
+                            <i class="fa-regular fa-floppy-disk"></i> Guardar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

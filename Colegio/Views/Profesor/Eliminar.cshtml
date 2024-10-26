@@ -1,0 +1,52 @@
+﻿@model Colegio.Models.Profesor
+@{
+    ViewData["Title"] = "Eliminar Profesor";
+}
+
+
+<div class="row">
+    <div class="offset-12">
+        <div class="card">
+            <div class="card-header bg-dark">
+                <h2 class="text-center text-white"><strong>Eliminar Profesor</strong></h2>
+            </div>
+            <div class="card-body">
+                <form method="post" asp-action="Eliminar">
+                    <input hidden asp-for="Id" />
+                    <ul class="list-group">
+                        <li class="list-group-item"><strong>Nombres: </strong>@Html.DisplayFor(m => m.Nombre)</li>
+                        <li class="list-group-item"><strong>Apellidos: </strong>@Html.DisplayFor(m => m.Apellido)</li>
+                        <li class="list-group-item"><strong>Género: </strong>@Model.Genero?.DescGenero</li>
+                        <li class="list-group-item form-group mt-2 d-flex justify-content-center">
+                            <a class="btn btn-outline-dark btn-lg w-25 mx-2" asp-controller="Profesor" asp-action="Index">
+                                <i class="fa-solid fa-arrow-left"></i> Regresar
+                            </a>
+                            <button class="btn btn-outline-danger btn-lg w-25" type="button" data-bs-toggle="modal" data-bs-target="#EliminarModal">
+                                <i class="fa-solid fa-trash"></i> Eliminar
+                            </button>
+
+                        </li>
+                    </ul>
+                    <div class="modal fade" id="EliminarModal" tabindex="-1" aria-labelledby="eliminarModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Eliminar Profesor</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>¿Esta seguro que desea eliminar al profesor?</p>
+                                    <p>@Html.DisplayFor(m => m.Nombre) @Html.DisplayFor(m => m.Apellido)</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline-dark btn-lg w-25 mx-2" data-bs-dismiss="modal">Cancelar</button>
+                                    <button class="btn btn-outline-danger btn-lg w-25" type="submit"> Eliminar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

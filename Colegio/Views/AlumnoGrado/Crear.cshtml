@@ -1,0 +1,51 @@
+﻿@model Colegio.Models.AlumnoGrado
+@{
+    ViewData["Title"] = "Nuevo Alumno Grado";
+}
+<div class="row">
+    <div class="offset-12">
+        <div class="card">
+            <div class="card-header bg-dark">
+                <h2 class="text-center text-white"><strong>Crear Nuevo Alumno Grado</strong></h2>
+            </div>
+            <div class="card-body">
+                <form asp-action="Crear" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-floating mb-3">
+                        <select class="form-control" asp-for="IdAlumno" asp-items="ViewBag.Alumno">
+                            <option value="">Seleccione un Alumno</option>
+                        </select>
+                        <span asp-validation-for="IdAlumno" class="text-danger"></span>
+                        <label asp-for="IdAlumno">Alumno</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <select class="form-control" asp-for="IdGrado" asp-items="ViewBag.Grado">
+                            <option value="">Seleccione un grado</option>
+                        </select>
+                        <span asp-validation-for="IdGrado" class="text-danger"></span>
+                        <label asp-for="IdGrado">Grado</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <select class="form-control" asp-for="IdSeccion" asp-items="ViewBag.Seccion">
+                            <option value="">Seleccione una sección</option>
+                        </select>
+                        <span asp-validation-for="IdSeccion" class="text-danger"></span>
+                        <label asp-for="IdSeccion">Sección</label>
+                    </div>
+
+                    <div class="form-group mt-2 d-flex justify-content-center">
+                        <a class="btn btn-outline-dark btn-lg w-25 mx-2" asp-controller="AlumnoGrado" asp-action="Index">
+                            <i class="fa-solid fa-arrow-left"></i> Regresar
+                        </a>
+                        <button class="btn btn-outline-primary btn-lg w-25" type="submit">
+                            <i class="fa-regular fa-floppy-disk"></i> Guardar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
